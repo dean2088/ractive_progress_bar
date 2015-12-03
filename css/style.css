@@ -1,0 +1,16 @@
+.progress {
+  position: relative;
+}
+.progress span {
+  position: absolute;
+  display: block;
+  width: 100%;
+}
+.progress span:not(.color_white) {
+  color: black;
+}
+.progress span.color_white {
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

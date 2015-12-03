@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Jasmine Spec Runner v2.0.2</title>
+
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.0.2/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.2/jasmine.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="text/javascript" src="lib/jasmine-2.0.2/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-2.0.2/jasmine-html.js"></script>
+  <script type="text/javascript" src="lib/jasmine-2.0.2/boot.js"></script>
+  <script src="../js/jquery.min.js"></script>
+  <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>    
+</head>
+<body>
+<div id="rcontainer"></div>
+</body>
+<script id="template" type="text/ractive">
+<div class="container">
+  <h2>My Test</h2>
+
+  <div class="progress row">
+    <div id="bar1"  class="progress-bar {{ current_value1>100 ? "progress-bar-danger" : "" }} " role="progressbar" aria-valuenow="{{current_value1}}" aria-valuemin="0" aria-valuemax="100" style="width:{{current_value1}}%">
+     <span class="{{ current_value1>50 ? "color_white" : "" }}"> {{current_value1}}%</span>
+    </div>
+  </div>
+
+  <div class="progress row">
+    <div id="bar2" align="center"  class="progress-bar {{ current_value2>100 ? "progress-bar-danger" : "" }} " role="progressbar" aria-valuenow="{{current_value2}}" aria-valuemin="0" aria-valuemax="100" style="width:{{current_value2}}%">
+      <span class="{{ current_value2>50 ? "color_white" : "" }}"> {{current_value2}}%</span>
+    </div>
+  </div>
+  
+  <div class="progress row">
+    <div id="bar3"  class="progress-bar {{ current_value3>100 ? "progress-bar-danger" : "" }} " role="progressbar" aria-valuenow="{{current_value3}}" aria-valuemin="0" aria-valuemax="100" style="width:{{current_value3}}%">
+      <span class="{{ current_value3>50 ? "color_white" : "" }}"> {{current_value3}}%</span>
+    </div>
+  </div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12" align="center">
+			<select id="ppt" onchange='ractive.set({bar_selected:this.value})'>
+				<option value="current_value1">#progress 1</option>
+				<option value="current_value2">#progress 2</option>
+				<option value="current_value3">#progress 3</option>
+			</select>
+			<button on-click="activate:{{'+25'}}">-25</button>
+			<button on-click="activate:{{'+10'}}">-10</button>
+			<button on-click="activate:{{'-10'}}">+10</button>
+			<button on-click="activate:{{'-25'}}">+25</button>
+		</div>
+	</div>
+</div>
+
+</script> 
+ <script src="../js/progressBar.js"></script>
+<script type="text/javascript" src="spec/spec.js"></script>   
+
+</html>
